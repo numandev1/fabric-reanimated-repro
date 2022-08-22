@@ -3,15 +3,5 @@
 // Most likely this is due to the fact that we use "react-native-reanimated": "link:../" in package.json.
 // The solution is to disable codegen autolinking on Android. This is only necessary in FabricExample app.
 module.exports = {
-  dependencies: {
-    'react-native-reanimated': {
-      platforms: {
-        android: {
-          libraryName: null,
-          componentDescriptors: null,
-          androidMkPath: null,
-        },
-      },
-    },
-  },
+  dependencies: {},
 };
