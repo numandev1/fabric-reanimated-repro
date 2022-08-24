@@ -1,0 +1,35 @@
+diff --git a/node_modules/react-native/React/AppSetup/RCTAppSetupUtils.h b/node_modules/react-native/React/AppSetup/RCTAppSetupUtils.h
+index 954dee2..9426666 100644
+--- a/node_modules/react-native/React/AppSetup/RCTAppSetupUtils.h
++++ b/node_modules/react-native/React/AppSetup/RCTAppSetupUtils.h
+@@ -9,6 +9,8 @@
+ #import <React/RCTBridge.h>
+ #import <React/RCTRootView.h>
+ 
++#ifdef __cplusplus
++
+ #if RCT_NEW_ARCH_ENABLED
+ 
+ #ifndef RCT_USE_HERMES
+@@ -28,6 +30,8 @@
+ #import <ReactCommon/RCTTurboModuleManager.h>
+ #endif
+ 
++#endif // __cplusplus
++
+ RCT_EXTERN_C_BEGIN
+ 
+ void RCTAppSetupPrepareApp(UIApplication *application);
+@@ -35,6 +39,7 @@ UIView *RCTAppSetupDefaultRootView(RCTBridge *bridge, NSString *moduleName, NSDi
+ 
+ RCT_EXTERN_C_END
+ 
++#ifdef __cplusplus
+ #if RCT_NEW_ARCH_ENABLED
+ RCT_EXTERN id<RCTTurboModule> RCTAppSetupDefaultModuleFromClass(Class moduleClass);
+ 
+@@ -42,3 +47,4 @@ std::unique_ptr<facebook::react::JSExecutorFactory> RCTAppSetupDefaultJsExecutor
+     RCTBridge *bridge,
+     RCTTurboModuleManager *turboModuleManager);
+ #endif
++#endif // __cplusplus
